@@ -2,5 +2,4 @@
 	email = john.syrinek@gmail.com
 	name = John Syrinek
 [core]
-	autocrlf = true
 	filemode = false

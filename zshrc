@@ -45,5 +45,5 @@ alias ll=ls -al
 plugins=(git cp dircycle z vagrant github)
 
 source $ZSH/oh-my-zsh.sh
-
+. ~/dotfiles/z/z.sh
 # Customize to your needs...
