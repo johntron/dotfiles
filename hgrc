@@ -1,0 +1,8 @@
+[ui]
+username = John Syrinek <jsyrinek@spirent.com>
+tomahawk.prefix = https://hg-ent.spirenteng.com/tomahawk
+tomahawk.username = jsyrinek
+
+[extensions]
+mq =
+mercurial_keyring = 

@@ -4,7 +4,8 @@
 # This script creates symlinks from the home directory to any desired dotfiles in ~/dotfiles
 ############################
 
-########## Variables
+FILES="gitconfig hgrc vimrc zshrc oh-my-zsh"    # list of files/folders to symlink in homedir
+
 SOURCE="${BASH_SOURCE[0]}"
 while [ -h "$SOURCE" ]; do # resolve $SOURCE until the file is no longer a symlink
   DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
@@ -12,10 +13,9 @@ while [ -h "$SOURCE" ]; do # resolve $SOURCE until the file is no longer a symli
   [[ $SOURCE != /* ]] && SOURCE="$DIR/$SOURCE" # if $SOURCE was a relative symlink, we need to resolve it relative to the path where the symlink file was located
 done
 DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
-OLDDIR=~/dotfiles_old             # old dotfiles backup directory
-FILES="gitconfig vimrc zshrc oh-my-zsh"    # list of files/folders to symlink in homedir
 
-##########
+OLDDIR=~/dotfiles_old             # old dotfiles backup directory
+
 
 # create dotfiles_old in homedir
 echo "Creating $OLDDIR for backup of any existing dotfiles in ~"
