@@ -1,7 +1,5 @@
 [ui]
-username = John Syrinek <jsyrinek@spirent.com>
-tomahawk.prefix = https://hg-ent.spirenteng.com/tomahawk
-tomahawk.username = jsyrinek
+username = John Syrinek
 
 [extensions]
 mq =
