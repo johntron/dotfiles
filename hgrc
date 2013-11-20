@@ -4,3 +4,7 @@ username = John Syrinek
 [extensions]
 mq =
 mercurial_keyring = 
+color = 
+pager = 
+purge = 
+shelve = ~/.hgext/hgshelve/hgshelve.py

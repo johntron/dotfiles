@@ -1,3 +1,8 @@
+if [ -f ~/.profile ]
+then
+	source ~/.profile
+fi
+
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
 
@@ -11,7 +16,7 @@ ZSH_THEME="agnoster"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias vi=vim
-alias ll=ls -al
+alias ll="ls -al"
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
