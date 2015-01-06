@@ -4,9 +4,12 @@
 # This script creates symlinks from the home directory to any desired dotfiles in ~/dotfiles
 ############################
 
-FILES="gitconfig hgrc vimrc zshrc oh-my-zsh"    # list of files/folders to symlink in homedir
+FILES="gitconfig hgrc vim vimrc zshrc oh-my-zsh"    # list of files/folders to symlink in homedir
 
 SOURCE="${BASH_SOURCE[0]}"
+
+git submodule update
+
 while [ -h "$SOURCE" ]; do # resolve $SOURCE until the file is no longer a symlink
   DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
   SOURCE="$(readlink "$SOURCE")"

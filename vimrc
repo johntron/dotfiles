@@ -1,3 +1,4 @@
+execute pathogen#infect()
 set nu
 set nocp
 set ts=4
