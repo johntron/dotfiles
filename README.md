@@ -11,6 +11,11 @@ Optional (for ctags support in vim):
 brew install ctags-exuberant
 ```
 
+Optional (for jslint support in vim):
+```sh
+npm install -g jslint
+```
+
 ## Usage
 vim:
 * Press <tab> for autocomplete
