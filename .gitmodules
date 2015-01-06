@@ -1,3 +1,6 @@
 [submodule "vim/bundle/node"]
 	path = vim/bundle/node
 	url = https://github.com/moll/vim-node.git
+[submodule "vim/bundle/emmet"]
+	path = vim/bundle/emmet
+	url = https://github.com/mattn/emmet-vim.git
