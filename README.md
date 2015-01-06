@@ -22,12 +22,18 @@ vim:
 * `gf` to go to file/module under cursor
 * `:Nedit module` to edit module's index.js
 * `html:5` then ctrl-Y,comma to expand to HTML5 boilerplate
-* `:Tlist` when editing sourcecode to view ctags
-* `:TlistAddFilesRecursive node_modules` generate ctags for local node modules
+* `:Tagbar` when editing sourcecode to view ctags
 * Press `ctrl-]` to goto definition of function/method under cursor
 * `:ln` goes to next jslint error; `:lopen` opens list of errors; Requires jslint (see Installation).
 
 ## Next steps
+Install Powerline fonts for fancy statusbars, command prompts, etc.: https://github.com/powerline/fonts
+
+Enable 256 colors (requires a terminal emulator that supports these colors):
+```sh
+echo "export TERM=xterm-256color" >> ~/.profile
+```
+
 On OS X, use Homebrew to install quicklook plugins (see github.com/sindresorhus/quick-look-plugins): 
 ```sh
 brew install caskroom/cask/brew-cask

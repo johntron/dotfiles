@@ -5,6 +5,8 @@ set ts=4
 set sw=4
 set ru
 set tags=./tags,tags
+set laststatus=2
+let g:airline_powerline_fonts = 1
 
 " When started as "evim", evim.vim will already have done these settings.
 if v:progname =~? "evim"
