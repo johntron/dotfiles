@@ -4,6 +4,7 @@ set nocp
 set ts=4
 set sw=4
 set ru
+set tags=./tags,tags
 
 " When started as "evim", evim.vim will already have done these settings.
 if v:progname =~? "evim"

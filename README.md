@@ -33,3 +33,8 @@ On OS X, use Homebrew to install quicklook plugins (see github.com/sindresorhus/
 brew install caskroom/cask/brew-cask
 brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv betterzipql qlimagesize webpquicklook suspicious-package
 ```
+
+Add an alias to generate ctags for local node modules:
+```sh
+echo "alias ctags_node='ctags -R --languages=JavaScript node_modules'" >> ~/.profile
+```
