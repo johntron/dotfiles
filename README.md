@@ -13,6 +13,7 @@ brew install ctags-exuberant
 
 ## Usage
 vim:
+* Press <tab> for autocomplete
 * `gf` to go to file/module under cursor
 * `:Nedit module` to edit module's index.js
 * `html:5` then ctrl-Y,comma to expand to HTML5 boilerplate
