@@ -25,6 +25,7 @@ vim:
 * `:Tagbar` when editing sourcecode to view ctags
 * Press `ctrl-]` to goto definition of function/method under cursor
 * `:ln` goes to next jslint error; `:lopen` opens list of errors; Requires jslint (see Installation).
+* See [vimawesome.com](http://vimawesome.com/) for more plugins - install using [Pathogen](https://github.com/tpope/vim-pathogen)
 
 ## Next steps
 Install Powerline fonts for fancy statusbars, command prompts, etc.: https://github.com/powerline/fonts
