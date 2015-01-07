@@ -19,7 +19,7 @@ npm install -g jslint
 ## Usage
 vim:
 * Press `<tab>` for autocomplete
-* Search for files with `:CtrlP`
+* Search for files with `:CtrlP` or ctrl-shift-O
 * `gf` to go to file/module under cursor
 * `:Nedit module` to edit module's index.js
 * `html:5` then ctrl-Y,comma to expand to HTML5 boilerplate
