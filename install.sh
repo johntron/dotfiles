@@ -8,7 +8,7 @@ FILES="gitconfig hgrc vim vimrc zshrc oh-my-zsh"    # list of files/folders to s
 
 SOURCE="${BASH_SOURCE[0]}"
 
-git submodule update
+git submodule update --init --recursive
 
 while [ -h "$SOURCE" ]; do # resolve $SOURCE until the file is no longer a symlink
   DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
