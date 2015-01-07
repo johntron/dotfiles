@@ -19,6 +19,7 @@ npm install -g jslint
 ## Usage
 vim:
 * Press `<tab>` for autocomplete
+* Search for files with `:CtrlP`
 * `gf` to go to file/module under cursor
 * `:Nedit module` to edit module's index.js
 * `html:5` then ctrl-Y,comma to expand to HTML5 boilerplate
@@ -29,6 +30,8 @@ vim:
 * See [vimawesome.com](http://vimawesome.com/) for more plugins - install using [Pathogen](https://github.com/tpope/vim-pathogen)
 
 ## Next steps
+Install `ag` (the silver searcher)[https://github.com/ggreer/the_silver_searcher] with `brew install the_silver_searcher`
+
 Install Powerline fonts for fancy statusbars, command prompts, etc.: https://github.com/powerline/fonts
 
 Enable 256 colors (requires a terminal emulator that supports these colors):
