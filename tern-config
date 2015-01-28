@@ -1,5 +1,5 @@
 {
-	"libs": ["browser", "ecma"],
+	"libs": ["browser", "ecma5"],
 	"plugins": {
 		"node": {}
 	}
