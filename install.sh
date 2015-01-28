@@ -4,7 +4,7 @@
 # This script creates symlinks from the home directory to any desired dotfiles in ~/dotfiles
 ############################
 
-FILES="gitconfig hgrc vim vimrc zshrc oh-my-zsh"    # list of files/folders to symlink in homedir
+FILES="tern-config gitconfig hgrc vim vimrc zshrc oh-my-zsh"    # list of files/folders to symlink in homedir
 
 SOURCE="${BASH_SOURCE[0]}"
 
@@ -21,19 +21,26 @@ OLDDIR=~/dotfiles_old             # old dotfiles backup directory
 
 
 # create dotfiles_old in homedir
-echo "Creating $OLDDIR for backup of any existing dotfiles in ~"
+echo -n "Creating $OLDDIR for backup of any existing dotfiles in ~ ..."
 mkdir -p $OLDDIR
-echo "...done"
-
-# change to the dotfiles directory
-echo "Changing to the $DIR directory"
-cd $DIR
-echo "...done"
+echo "done"
 
 # move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks 
+echo -n "Moving any existing dotfiles from ~ to $OLDDIR ..."
 for FILE in $FILES; do
-    echo "Moving any existing dotfiles from ~ to $OLDDIR"
-    mv ~/.$FILE $OLDDIR
-    echo "Creating symlink to $FILE in home directory."
-    ln -s $DIR/$FILE ~/.$FILE
+    mv ~/.$FILE $OLDDIR 2>/dev/null
 done
+echo "done"
+
+echo "Creating symlinks ..."
+for FILE in $FILES; do
+    if [ -L ~/.$FILE ]
+	then
+		echo "  Symlink ~/.$FILE > $DIR/$FILE exists, skipping"
+	else
+		echo -n "  + Creating ~/.$FILE > $DIR/$FILE ..."
+		ln -s $DIR/$FILE ~/.$FILE
+		echo "done"
+	fi
+done
+echo "done"
