@@ -1,3 +1,4 @@
+cd ~
 if [ -f ~/.profile ]
 then
 	source ~/.profile
@@ -52,7 +53,9 @@ plugins=(git mercurial colorize jira cp dircycle z vagrant github)
 source $ZSH/oh-my-zsh.sh
 . ~/dotfiles/z/z.sh
 # Customize to your needs...
-. `brew --prefix`/etc/profile.d/z.sh
+if type "brew" > /dev/null; then
+	`brew --prefix`/etc/profile.d/z.sh
+fi
 ###-begin-karma-completion-###
 #
 # karma command completion script
@@ -103,3 +106,5 @@ elif type compctl &>/dev/null; then
   compctl -K __karma_completion karma
 fi
 ###-end-karma-completion-###
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

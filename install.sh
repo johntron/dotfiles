@@ -4,7 +4,7 @@
 # This script creates symlinks from the home directory to any desired dotfiles in ~/dotfiles
 ############################
 
-FILES="tern-config gitconfig hgrc vim vimrc zshrc oh-my-zsh"    # list of files/folders to symlink in homedir
+FILES="fzf tern-config gitconfig hgrc vim vimrc zshrc oh-my-zsh"    # list of files/folders to symlink in homedir
 
 SOURCE="${BASH_SOURCE[0]}"
 
@@ -43,4 +43,8 @@ for FILE in $FILES; do
 		echo "done"
 	fi
 done
+echo "done"
+
+echo "Installing fuzzy finder (use with ctrl+T)..."
+~/.fzf/install
 echo "done"
