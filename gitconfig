@@ -3,5 +3,6 @@
 	name = John Syrinek
 [core]
 	filemode = false
+	editor = /usr/local/bin/vim
 [push]
 	default = simple

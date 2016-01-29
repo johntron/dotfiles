@@ -1,5 +1,6 @@
 [ui]
 username = John Syrinek
+editor = vim
 
 [extensions]
 mq =
