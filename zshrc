@@ -54,7 +54,7 @@ source $ZSH/oh-my-zsh.sh
 . ~/dotfiles/z/z.sh
 # Customize to your needs...
 if type "brew" > /dev/null; then
-	`brew --prefix`/etc/profile.d/z.sh
+	. `brew --prefix`/etc/profile.d/z.sh
 fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
