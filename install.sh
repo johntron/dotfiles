@@ -48,3 +48,17 @@ echo "done"
 echo "Installing fuzzy finder (use with ctrl+T)..."
 ~/.fzf/install
 echo "done"
+
+echo -n "Install vim from source? [yN] "
+read install
+if echo "$install" | grep -iq "^y"; then
+	echo
+	echo -n "Installing vim..."
+	cd vimsrc
+	make distclean
+	./configure --enable-pythoninterp=yes
+	make
+	sudo make install
+	cd ..
+	echo "done"
+fi

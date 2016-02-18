@@ -1,5 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =3
-let g:netrw_dirhist_1='/Users/johntron/Dropbox/Public/Inventory/datasource'
-let g:netrw_dirhist_2='/Users/johntron/Dropbox/Public/Inventory/list'
-let g:netrw_dirhist_3='/Users/johntron/Development/avalanche_bootstrap/avalanche_app/public/apps/player/model'

@@ -37,3 +37,6 @@
 [submodule "vim/bundle/Vim-Jinja2-Syntax"]
 	path = vim/bundle/Vim-Jinja2-Syntax
 	url = https://github.com/Glench/Vim-Jinja2-Syntax
+[submodule "vimsrc"]
+	path = vimsrc
+	url = https://github.com/vim/vim.git
