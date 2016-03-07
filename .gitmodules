@@ -40,3 +40,6 @@
 [submodule "vimsrc"]
 	path = vimsrc
 	url = https://github.com/vim/vim.git
+[submodule "powerline-fonts"]
+	path = powerline-fonts
+	url = https://github.com/powerline/fonts.git

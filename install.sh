@@ -62,3 +62,23 @@ if echo "$install" | grep -iq "^y"; then
 	cd ..
 	echo "done"
 fi
+
+echo -n "Install powerline fonts? [yN]"
+read install
+if echo "$install" | grep -iq "^y"; then
+	echo
+	echo -n "Installing powerline fonts..."
+	cd powerline-fonts
+	./install.sh
+	cd ..
+	echo "done"
+fi
+
+echo -n "Install nvm? [yN] "
+read install
+if echo "$install" | grep -iq "^y"; then
+	echo
+	echo -n "Installing nvm..."
+	curl -o- https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
+	echo "done"
+fi

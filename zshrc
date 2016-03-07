@@ -53,7 +53,7 @@ plugins=(git mercurial colorize jira cp dircycle z vagrant github)
 source $ZSH/oh-my-zsh.sh
 . ~/dotfiles/z/z.sh
 # Customize to your needs...
-if type "brew" > /dev/null; then
+if type "brew" > /dev/null 2>&1; then
 	. `brew --prefix`/etc/profile.d/z.sh
 fi
 
@@ -150,5 +150,5 @@ elif type compctl &>/dev/null; then
 fi
 ###-end-pm2-completion-###
 
-export NVM_DIR=~/.nvm
-. $(brew --prefix nvm)/nvm.sh
+export NVM_DIR="/home/johntron/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
