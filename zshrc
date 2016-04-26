@@ -150,5 +150,13 @@ elif type compctl &>/dev/null; then
 fi
 ###-end-pm2-completion-###
 
+function tunnel {
+	source_port=$1
+	dest_port=${3:-$1}
+	host=$2
+	echo "ssh -L ${source_port}:localhost:${dest_port} ${host} -N -vv"
+	ssh -L ${source_port}:localhost:${dest_port} ${host} -N -vv
+}
+
 export NVM_DIR="/home/johntron/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
