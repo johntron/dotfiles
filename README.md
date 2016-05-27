@@ -6,9 +6,9 @@ John Syrinek's dotfiles
     ./install.sh
 ```
 
-Optional (for ctags support in vim):
+Optional (for ctags and editorconfig support in vim):
 ```sh
-brew install ctags-exuberant
+brew install ctags-exuberant editorconfig
 ```
 
 Optional (for jslint support in vim):
