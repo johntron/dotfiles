@@ -3,7 +3,7 @@ John Syrinek's dotfiles
 
 ## Installation
 ```sh
-    ./install.sh
+./install.sh
 ```
 
 Optional (for ctags and editorconfig support in vim):
