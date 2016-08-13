@@ -4,7 +4,7 @@
 # This script creates symlinks from the home directory to any desired dotfiles in ~/dotfiles
 ############################
 
-FILES="fzf tern-config gitconfig hgrc vim vimrc zshrc oh-my-zsh"    # list of files/folders to symlink in homedir
+FILES="fzf tern-config gitconfig hgrc vim vimrc zshrc oh-my-zsh editorconfig"    # list of files/folders to symlink in homedir
 
 SOURCE="${BASH_SOURCE[0]}"
 
