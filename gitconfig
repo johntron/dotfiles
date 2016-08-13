@@ -6,3 +6,5 @@
 	editor = /usr/local/bin/vim
 [push]
 	default = simple
+[credential]
+	helper = cache
