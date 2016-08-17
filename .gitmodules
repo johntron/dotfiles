@@ -49,3 +49,6 @@
 [submodule "vim/bundle/vim-less"]
 	path = vim/bundle/vim-less
 	url = https://github.com/groenewege/vim-less
+[submodule "lnav"]
+	path = lnav
+	url = git@github.com:tstack/lnav.git

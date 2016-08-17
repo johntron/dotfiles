@@ -25,7 +25,7 @@ echo -n "Creating $OLDDIR for backup of any existing dotfiles in ~ ..."
 mkdir -p $OLDDIR
 echo "done"
 
-# move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks 
+# move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks
 echo -n "Moving any existing dotfiles from ~ to $OLDDIR ..."
 for FILE in $FILES; do
     mv ~/.$FILE $OLDDIR 2>/dev/null
@@ -80,5 +80,21 @@ if echo "$install" | grep -iq "^y"; then
 	echo
 	echo -n "Installing nvm..."
 	curl -o- https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
+	echo "done"
+fi
+
+echo -n "Install lnav? [yN] "
+read install
+if echo "$install" | grep -iq "^y"; then
+	echo
+	echo -n "Installing log navigator, lnav..."
+    brew install readline
+    brew link readline --force
+    cd lnav
+    ./autogen.sh
+    ./configure
+    make
+    make install
+    cd ..
 	echo "done"
 fi
