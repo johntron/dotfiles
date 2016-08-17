@@ -40,6 +40,10 @@ set incsearch   " do incremental searching
 " Don't use Ex mode, use Q for formatting
 map Q gq
 
+" Navigate tabs
+map <Esc>, :tabprevious<CR>
+map <Esc>. :tabnext<CR>
+
 " CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
 " so that you can undo CTRL-U after inserting a line break.
 inoremap <C-U> <C-G>u<C-U>
