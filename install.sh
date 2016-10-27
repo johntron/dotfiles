@@ -49,7 +49,7 @@ echo "Installing fuzzy finder (use with ctrl+T)..."
 ~/.fzf/install
 echo "done"
 
-echo -n "Install vim from source? [yN] "
+echo -n "Install vim from source? [y/[n]] "
 read install
 if echo "$install" | grep -iq "^y"; then
 	echo
@@ -63,7 +63,7 @@ if echo "$install" | grep -iq "^y"; then
 	echo "done"
 fi
 
-echo -n "Install powerline fonts? [yN]"
+echo -n "Install powerline fonts? [y/[n]]"
 read install
 if echo "$install" | grep -iq "^y"; then
 	echo
@@ -74,7 +74,7 @@ if echo "$install" | grep -iq "^y"; then
 	echo "done"
 fi
 
-echo -n "Install nvm? [yN] "
+echo -n "Install nvm? [y/[n]] "
 read install
 if echo "$install" | grep -iq "^y"; then
 	echo
@@ -83,16 +83,26 @@ if echo "$install" | grep -iq "^y"; then
 	echo "done"
 fi
 
-echo -n "Install lnav? [yN] "
+echo -n "Install nodengine? [y/[n]] "
+read install
+if echo "$install" | grep -iq "^y"; then
+	echo
+	echo -n "Installing nodengine..."
+    echo "Password for sudo may be required"
+    sudo npm install -g nodengine
+	echo "done"
+fi
+
+echo -n "Install lnav? [y/[n]] "
 read install
 if echo "$install" | grep -iq "^y"; then
 	echo
 	echo -n "Installing log navigator, lnav..."
     brew install readline
-    brew link readline --force
+    #brew link readline --force
     cd lnav
     ./autogen.sh
-    ./configure
+    ./configure --with-readline=`brew --prefix readline` --prefix='/usr/local'
     make
     make install
     cd ..

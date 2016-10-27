@@ -1,7 +1,7 @@
 cd ~
 if [ -f ~/.profile ]
 then
-	source ~/.profile
+    source ~/.profile
 fi
 
 # Path to your oh-my-zsh configuration.
@@ -54,7 +54,7 @@ source $ZSH/oh-my-zsh.sh
 . ~/dotfiles/z/z.sh
 # Customize to your needs...
 if type "brew" > /dev/null 2>&1; then
-	. `brew --prefix`/etc/profile.d/z.sh
+    . `brew --prefix`/etc/profile.d/z.sh
 fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -151,12 +151,29 @@ fi
 ###-end-pm2-completion-###
 
 function tunnel {
-	source_port=$1
-	dest_port=${3:-$1}
-	host=$2
-	echo "ssh -L ${source_port}:localhost:${dest_port} ${host} -N -vv"
-	ssh -L ${source_port}:localhost:${dest_port} ${host} -N -vv
+    source_port=$1
+    dest_port=${3:-$1}
+    host=$2
+    echo "ssh -L ${source_port}:localhost:${dest_port} ${host} -N -vv"
+    ssh -L ${source_port}:localhost:${dest_port} ${host} -N -vv
 }
 
 export NVM_DIR="/home/johntron/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+[[ -s "$HOME/.avn/bin/avn.sh" ]] && source "$HOME/.avn/bin/avn.sh" # load avn
+
+# Enable nodengine autoswitching
+if hash nodengine 2>/dev/null; then
+    function cd () { builtin cd "$@" && chpwd; }
+    pushd () { builtin pushd "$@" && chpwd; }
+    popd () { builtin popd "$@" && chpwd; }
+    function chpwd () {
+        FILE=$PWD/package.json
+
+        if [ -f $FILE ] && [ "$LAST_NODENGINE_DIR" != "$PWD" ]; then
+            nodengine
+            builtin echo "changed to node $(node --version)"
+            LAST_NODENGINE_DIR="$PWD"
+        fi
+    }
+fi
