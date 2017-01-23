@@ -52,3 +52,6 @@
 [submodule "lnav"]
 	path = lnav
 	url = git@github.com:tstack/lnav.git
+[submodule "iTerm2-Color-Schemes"]
+	path = iTerm2-Color-Schemes
+	url = git@github.com:mbadolato/iTerm2-Color-Schemes.git

@@ -108,3 +108,12 @@ if echo "$install" | grep -iq "^y"; then
     cd ..
 	echo "done"
 fi
+
+echo -n "Install iTerm2 theme, Tomorrow Night Bright? [y/[n]] "
+read install
+if echo "$install" | grep -iq "^y"; then
+	echo
+	echo -n "Installing Tomorrow Night Bright.itermcolors ..."
+    open "iTerm2-Color-Schemes/schemes/Tomorrow Night Bright.itermcolors"
+	echo "done"
+fi
