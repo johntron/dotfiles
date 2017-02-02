@@ -1,61 +1,38 @@
-# dotfiles
-John Syrinek's dotfiles
+# John Syrinek's dotfiles
 
 ## Installation
+
 ```sh
 ./install.sh
 ```
 
-Optional (for ctags and editorconfig support in vim):
 
-```sh
-brew install ctags-exuberant editorconfig
-```
+## Shell usage
 
-Optional (for jslint support in vim):
+* Type `l <path>` to `ls -al` on `<path>`
+* Type `z <path>` to navigate to frequently-used path matching `<path>`
+* Press <Ctrl-T> to fuzzy search for files
 
-```sh
-npm install -g jslint
-```
 
-## Usage
-vim:
+## Vim usage
 
-* Press `<tab>` for autocomplete
-* Search for files with `:CtrlP` or ctrl-shift-O
-* `gf` to go to file/module under cursor
-* `:Nedit module` to edit module's index.js
-* `html:5` then ctrl-Y,comma to expand to HTML5 boilerplate
-* `:Tagbar` when editing sourcecode to view ctags
-* Press `ctrl-]` to goto definition of function/method under cursor
-* `:ln` goes to next jslint error; `:lopen` opens list of errors; Requires jslint (see Installation).
-* `:call JsBeautify()` to beautify current JavaScript file
+* `<C-P>`: fuzzy search and open files in new tab
+* `,.`: go to next tab
+* `,,`: go to previous tab
+* `:vsplit`: split screen vertically (opposite of `:split`)
+* `<C>w<Right>`: switch to pane on right of current (works with any arrow keys)
+* `<C>wq`: close current pane
+* `<Tab>`: autocomplete (builtin)
+* `<,-t>`: to view tags
+* `gf`: go to file/module under cursor (builtin)
+* `ctrl-]`: goto definition of function/method under cursor
+* `,hp`: preview git diff hunk
+* `,hn`: preview next git diff hunk
+* `:Nedit module`: edit module's index.js
+* `<,-m>`: expand HTML using Emmet
+* `:ln`: go to next eslint error
+* `:lopen`: open list of eslint errors
+* `:call JsBeautify()`: beautify current JavaScript file
+* `:call HtmlBeautify()`: beautify current HTML file
 * See [vimawesome.com](http://vimawesome.com/) for more plugins - install using [Pathogen](https://github.com/tpope/vim-pathogen)
 
-## Next steps
-Install `ag` [the silver searcher](https://github.com/ggreer/the_silver_searcher) with:
-
-```sh
-brew install the_silver_searcher
-```
-
-Install [Powerline fonts](https://github.com/powerline/fonts) for fancy statusbars, command prompts, etc.
-
-Enable 256 colors (requires a terminal emulator that supports these colors):
-
-```sh
-echo "export TERM=xterm-256color" >> ~/.profile
-```
-
-On OS X, use Homebrew to install [quicklook plugins](https://github.com/sindresorhus/quick-look-plugins): 
-
-```sh
-brew install caskroom/cask/brew-cask
-brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv betterzipql qlimagesize webpquicklook suspicious-package
-```
-
-Add an alias to generate ctags for local node modules:
-
-```sh
-echo "alias ctags_node='ctags -R --languages=JavaScript node_modules'" >> ~/.profile
-```

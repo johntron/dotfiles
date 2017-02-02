@@ -1,155 +1,22 @@
-cd ~
+# Load .profile if it exists
 if [ -f ~/.profile ]
 then
     source ~/.profile
 fi
 
-# Path to your oh-my-zsh configuration.
+# Oh my zsh
 ZSH=$HOME/.oh-my-zsh
-
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
-ZSH_THEME="agnoster"
-
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-alias vi=vim
-alias ll="ls -al"
-
-# Set to this to use case-sensitive completion
-# CASE_SENSITIVE="true"
-
-# Comment this out to disable bi-weekly auto-update checks
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment to change how often before auto-updates occur? (in days)
-# export UPDATE_ZSH_DAYS=13
-
-# Uncomment following line if you want to disable colors in ls
-# DISABLE_LS_COLORS="true"
-
-# Uncomment following line if you want to disable autosetting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment following line if you want to disable command autocorrection
-# DISABLE_CORRECTION="true"
-
-# Uncomment following line if you want red dots to be displayed while waiting for completion
-# COMPLETION_WAITING_DOTS="true"
-
-# Uncomment following line if you want to disable marking untracked files under
-# VCS as dirty. This makes repository status check for large repositories much,
-# much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git mercurial colorize jira cp dircycle z vagrant github)
-
+ZSH_THEME="agnoster" # Set theme (from ~/.oh-my-zsh/themes/)
+plugins=(git colorize cp dircycle z vagrant docker github) # Plugins (from ~/.oh-my-zsh/custom/plugins/)
 source $ZSH/oh-my-zsh.sh
-. ~/dotfiles/z/z.sh
-# Customize to your needs...
-if type "brew" > /dev/null 2>&1; then
-    . `brew --prefix`/etc/profile.d/z.sh
-fi
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# Z directory switcher
+[ -f ~/dotfiles/z/z.sh ] && . ~/dotfiles/z/z.sh
 
-###-begin-karma-completion-###
-#
-# karma command completion script
-# This is stolen from NPM. Thanks @isaac!
-#
-# Installation: karma completion >> ~/.bashrc  (or ~/.zshrc)
-# Or, maybe: karma completion > /usr/local/etc/bash_completion.d/npm
-#
+# Fuzzy-finder
+[ -f ~/.fzf.zsh ] && . ~/.fzf.zsh
 
-if type complete &>/dev/null; then
-  __karma_completion () {
-    local si="$IFS"
-    IFS=$'\n' COMPREPLY=($(COMP_CWORD="$COMP_CWORD" \
-                           COMP_LINE="$COMP_LINE" \
-                           COMP_POINT="$COMP_POINT" \
-                           karma completion -- "${COMP_WORDS[@]}" \
-                           2>/dev/null)) || return $?
-    IFS="$si"
-  }
-  complete -F __karma_completion karma
-elif type compdef &>/dev/null; then
-  __karma_completion() {
-    si=$IFS
-    compadd -- $(COMP_CWORD=$((CURRENT-1)) \
-                 COMP_LINE=$BUFFER \
-                 COMP_POINT=0 \
-                 karma completion -- "${words[@]}" \
-                 2>/dev/null)
-    IFS=$si
-  }
-  compdef __karma_completion karma
-elif type compctl &>/dev/null; then
-  __karma_completion () {
-    local cword line point words si
-    read -Ac words
-    read -cn cword
-    let cword-=1
-    read -l line
-    read -ln point
-    si="$IFS"
-    IFS=$'\n' reply=($(COMP_CWORD="$cword" \
-                       COMP_LINE="$line" \
-                       COMP_POINT="$point" \
-                       karma completion -- "${words[@]}" \
-                       2>/dev/null)) || return $?
-    IFS="$si"
-  }
-  compctl -K __karma_completion karma
-fi
-###-end-karma-completion-###
-###-begin-pm2-completion-###
-### credits to npm for the completion file model
-#
-# Installation: pm2 completion >> ~/.bashrc  (or ~/.zshrc)
-#
-
-COMP_WORDBREAKS=${COMP_WORDBREAKS/=/}
-COMP_WORDBREAKS=${COMP_WORDBREAKS/@/}
-export COMP_WORDBREAKS
-
-if type complete &>/dev/null; then
-  _pm2_completion () {
-    local si="$IFS"
-    IFS=$'\n' COMPREPLY=($(COMP_CWORD="$COMP_CWORD" \
-                           COMP_LINE="$COMP_LINE" \
-                           COMP_POINT="$COMP_POINT" \
-                           pm2 completion -- "${COMP_WORDS[@]}" \
-                           2>/dev/null)) || return $?
-    IFS="$si"
-  }
-  complete -o default -F _pm2_completion pm2
-elif type compctl &>/dev/null; then
-  _pm2_completion () {
-    local cword line point words si
-    read -Ac words
-    read -cn cword
-    let cword-=1
-    read -l line
-    read -ln point
-    si="$IFS"
-    IFS=$'\n' reply=($(COMP_CWORD="$cword" \
-                       COMP_LINE="$line" \
-                       COMP_POINT="$point" \
-                       pm2 completion -- "${words[@]}" \
-                       2>/dev/null)) || return $?
-    IFS="$si"
-  }
-  compctl -K _pm2_completion + -f + pm2
-fi
-###-end-pm2-completion-###
-
+# Functions and aliases
 function tunnel {
     source_port=$1
     dest_port=${3:-$1}
@@ -157,23 +24,6 @@ function tunnel {
     echo "ssh -L ${source_port}:localhost:${dest_port} ${host} -N -vv"
     ssh -L ${source_port}:localhost:${dest_port} ${host} -N -vv
 }
+alias vi="vim -p"
+alias l="ls -al"
 
-export NVM_DIR="/home/johntron/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-[[ -s "$HOME/.avn/bin/avn.sh" ]] && source "$HOME/.avn/bin/avn.sh" # load avn
-
-# Enable nodengine autoswitching
-if hash nodengine 2>/dev/null; then
-    function cd () { builtin cd "$@" && chpwd; }
-    pushd () { builtin pushd "$@" && chpwd; }
-    popd () { builtin popd "$@" && chpwd; }
-    function chpwd () {
-        FILE=$PWD/package.json
-
-        if [ -f $FILE ] && [ "$LAST_NODENGINE_DIR" != "$PWD" ]; then
-            nodengine
-            builtin echo "changed to node $(node --version)"
-            LAST_NODENGINE_DIR="$PWD"
-        fi
-    }
-fi

@@ -1,13 +1,25 @@
 execute pathogen#infect()
+set clipboard=unnamed
 set nu
 set nocp
 set ts=4
 set sw=4
 set ru
-set tags=./tags,tags
+
+let mapleader = ","
+
+" Omni completion
+filetype plugin on
+set omnifunc=syntaxcomplete#Complete
+inoremap <Tab> <C-X><C-O>
+set completeopt=longest,menuone,preview
+
 set laststatus=2
+
+" Powerline fonts
 let g:airline_powerline_fonts = 1
 
+" ag (Silver searcher)
 if executable('ag')
   " Use Ag over Grep
   set grepprg=ag\ --nogroup\ --nocolor
@@ -15,7 +27,6 @@ if executable('ag')
   " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 endif
-
 
 " When started as "evim", evim.vim will already have done these settings.
 if v:progname =~? "evim"
@@ -41,14 +52,23 @@ set incsearch   " do incremental searching
 map Q gq
 
 " Navigate tabs
-map <Esc>, :tabprevious<CR>
-map <Esc>. :tabnext<CR>
+map <Leader>, :tabprevious<CR>
+map <Leader>. :tabnext<CR>
 
-" Toggle TagBar
-map <Esc>t :Tagbar<CR>
+" Emmet
+imap <Leader>m <C-Y>,
+
+" gitgutter
+let g:gitgutter_realtime = 1
+set updatetime=250
+
+" TagBar
+autocmd VimEnter * nested :TagbarOpen
+autocmd VimEnter * nested :call tagbar#autoopen(1)
+map <Leader>t :TagbarToggle<CR>
 
 " Texplore
-map <Esc>e :Texplore<CR>
+map <Leader>e :Texplore<CR>
 
 " CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
 " so that you can undo CTRL-U after inserting a line break.
@@ -112,14 +132,20 @@ endif
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
-
 let g:syntastic_always_populate_loc_list = 1
 "let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_javascript_checkers = ['eslint', 'jscs']
-noremap <C-@> :CtrlP<CR>
 
+" CtrlP fuzzy search
+noremap <C-@> :CtrlP<CR>
+let g:ctrlp_prompt_mappings = {
+    \ 'AcceptSelection("e")': ['<2-LeftMouse>'],
+    \ 'AcceptSelection("t")': ['<cr>'],
+    \ }
+
+" Custom configuration for specific directories
 function! SetupEnvironment()
 	let l:path = expand('%:p')
 	if l:path =~ 'Development/av*'
@@ -129,3 +155,4 @@ function! SetupEnvironment()
 endfunction
 autocmd! BufReadPost,BufNewFile * call SetupEnvironment()
 set exrc
+
