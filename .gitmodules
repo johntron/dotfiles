@@ -55,3 +55,12 @@
 [submodule "iTerm2-Color-Schemes"]
 	path = iTerm2-Color-Schemes
 	url = git@github.com:mbadolato/iTerm2-Color-Schemes.git
+[submodule "vim/bundle/indentLine"]
+	path = vim/bundle/indentLine
+	url = git@github.com:Yggdroot/indentLine.git
+[submodule "vim/bundle/vim-polyglot"]
+	path = vim/bundle/vim-polyglot
+	url = git@github.com:sheerun/vim-polyglot.git
+[submodule "vim/bundle/vim-gitgutter"]
+	path = vim/bundle/vim-gitgutter
+	url = git@github.com:airblade/vim-gitgutter.git
