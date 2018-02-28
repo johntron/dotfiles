@@ -1,6 +1,6 @@
 #!/bin/bash
 
-git submodule update --init --recursive
+git submodule update --init --rebase --remote --recursive
 
 OLDDIR=~/dotfiles_old # old dotfiles backup directory
 
