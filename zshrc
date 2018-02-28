@@ -27,3 +27,5 @@ function tunnel {
 alias vi="vim -p"
 alias l="ls -al"
 
+# added by travis gem
+[ -f /Users/jsyrinek/.travis/travis.sh ] && source /Users/jsyrinek/.travis/travis.sh
