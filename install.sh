@@ -77,7 +77,9 @@ function install_fzf() {
 function install_vim() {
     cd vimsrc
 	make distclean
-	./configure --enable-pythoninterp=yes
+	./configure \
+        --enable-pythoninterp=yes  \
+        --enable-python3interp=yes
 	make
 	sudo make install
 	cd ..
