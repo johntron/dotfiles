@@ -91,6 +91,10 @@ function install_powerline() {
 	cd ..
 }
 
+function install_n() {
+    npm install n --global --production
+}
+
 function install_nvm() {
     curl -o- https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
 }
@@ -137,8 +141,9 @@ add "yarn" 'install_yarn'
 add "editorconfig" 'install_editorconfig'
 add "vim (from source)" 'install_vim'
 add "powerline fonts" 'install_powerline'
-add "nvm" 'install_nvm'
-add "nodengine" 'install_nodengine'
+add "n (node version manager)" 'install_n'
+add "nvm (node version manager)" 'install_nvm'
+add "nodengine (auto node version switcher)" 'install_nodengine'
 add "log navigator (lnav)" 'install_lnav'
 add "iTerm theme (Tomorrow Night Bright)" 'install_iterm_theme'
 
