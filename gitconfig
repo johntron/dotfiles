@@ -1,6 +1,3 @@
-[user]
-	email = john.syrinek@gmail.com
-	name = John Syrinek
 [core]
 	filemode = false
 	editor = /usr/local/bin/vim
