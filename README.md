@@ -5,7 +5,7 @@ Clone this repo and add a few lines to your dotfiles - stuff with a "dot" prefix
 
 ## Install
 
-First, setup your startup files so they know where to find modules in this repo:
+First, setup your startup files so they know where to find modules in this repo. There are examples in [startup-files/](startup-files/), but here's the manual steps:
 
 1. In the login startup file (e.g. .zprofile), create an environment variable referencing this directory (git repo root): `export DOTFILES=$HOME/Development/dotfiles`
 2. Ensure $DOTFILES will exist in interactive shells. This may require adding something like `source .zprofile` to a file like .zshrc. (see "OKWTF..." section below).
