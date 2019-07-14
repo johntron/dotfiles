@@ -8,9 +8,7 @@ function node_command() {
 	
 function node() {
 	node_command node $@
-	#docker run -it -v $PWD:/usr/src/app -w /usr/src/app -u $CURRENT_USER node:$NODE_VERSION node $@
 }
 function npm() {
 	node_command npm $@
-	#docker run -it -v $PWD:/usr/src/app -w /usr/src/app -u $CURRENT_USER node:$NODE_VERSION npm $@
 }
