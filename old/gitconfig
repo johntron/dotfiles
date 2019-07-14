@@ -1,7 +1,0 @@
-[core]
-	filemode = false
-	editor = /usr/local/bin/vim
-[push]
-	default = simple
-[credential]
-	helper = cache

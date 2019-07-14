@@ -1,0 +1,24 @@
+ensure_vimrc() {
+	if [ -r $HOME/.vimrc ]; then
+		return
+	fi
+	ln -s "$DOTFILES/startup-files/.vimrc" $HOME/.vimrc
+}
+
+vim_plugin_path=$HOME/.vim/pack/plugins/start
+ensure_vim_plugin() {
+	name=$1
+	git_repo=$2
+	if [ -r $vim_plugin_path/$name ]; then
+		return
+	fi
+	echo "Vim plugin $name missing - installing"
+	mkdir -p $vim_plugin_path 2>/dev/null
+	git clone $git_repo $vim_plugin_path/$name
+}
+
+ensure_vimrc
+os_ensure vi
+alias vi="vi -p"
+#ensure_vim_plugin syntastic https://github.com/vim-syntastic/syntastic.git
+

@@ -2,11 +2,14 @@ os_install() {
 	sudo apt-get install -y $@
 }
 
-ensure_curl() {
-	if [ -x "$(command -v curl)" ]; then
-		return
-	fi
-	os_install curl
+os_ensure() {
+    CMD=$1
+    if [ -x "$(command -v $CMD)" ]; then
+        return
+    fi
+    echo "Command $CMD doesn't exists - installing"
+    os_install $CMD
 }
-ensure_curl
+
+os_ensure curl
 

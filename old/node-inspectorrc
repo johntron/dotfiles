@@ -1,6 +1,0 @@
-{
-  "save-live-edit": true,
-  "saveLiveEdit": true,
-  "preload": false,
-  "hidden": ["node_modules/"]
-}
