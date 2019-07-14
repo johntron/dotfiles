@@ -1,0 +1,2 @@
+export EDITOR=/usr/bin/vi
+export VISUAL=$EDITOR
