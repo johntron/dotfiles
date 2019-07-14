@@ -3,7 +3,20 @@
 Clone this repo and add a few lines to your dotfiles - stuff with a "dot" prefix like ~/.profile - to up your shell game.
 
 
-## Install
+## Quickstart
+
+Run this:
+```
+export DOTFILES=$HOME/Development/dotfiles # Change this to directory of this README
+ln -s $DOTFILES/startup-files/.zprofile ~/.zprofile
+ln -s $DOTFILES/startup-files/.zshrc ~/.zshrc
+ln -s $DOTFILES/startup-files/.vimrc ~/.vimrc
+```
+
+Warning: oh-my-zsh might have replaced the .zshrc created from those previous commands - check the output and restore it if necessary!
+
+
+## Installation
 
 First, setup your startup files so they know where to find modules in this repo. There are examples in [startup-files/](startup-files/), but here's the manual steps:
 
