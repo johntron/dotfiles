@@ -1,7 +1,6 @@
-source $HOME/.zprofile
-source $DOTFILES/modules/debian
-source $DOTFILES/modules/user-bin
-source $DOTFILES/modules/oh-my-zsh
-source $DOTFILES/modules/dockerized-node
-source $DOTFILES/modules/ssh
-source $DOTFILES/modules/eclipse-che
+export DOTFILES_STARTUP="$DOTFILES_STARTUP, zshrc"
+source $DOTFILES/interactive/debian
+source $DOTFILES/interactive/oh-my-zsh
+source $DOTFILES/interactive/dockerized-node
+source $DOTFILES/interactive/ssh-tunnel
+source $DOTFILES/interactive/eclipse-che
