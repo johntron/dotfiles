@@ -1,0 +1,7 @@
+tunnel() {
+    source_port=$1
+    dest_port=${3:-$1}
+    host=$2
+    echo "ssh -L ${source_port}:localhost:${dest_port} ${host} -N -vv"
+    ssh -L ${source_port}:localhost:${dest_port} ${host} -N -vv
+}

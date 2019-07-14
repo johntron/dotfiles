@@ -1,0 +1,12 @@
+os_install() {
+	sudo apt-get install -y $@
+}
+
+ensure_curl() {
+	if [ -x "$(command -v curl)" ]; then
+		return
+	fi
+	os_install curl
+}
+ensure_curl
+

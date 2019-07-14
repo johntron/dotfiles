@@ -1,0 +1,30 @@
+ensure_zsh() {
+	if [ -x "$(command -v zsh)" ]; then
+		return
+	fi
+       	echo "zsh not installed - installing"
+	os_install zsh
+}
+
+ensure_oh_my_zsh() {
+	if [ -r $ZSH/oh-my-zsh.sh ]; then
+		return
+	fi
+	echo "oh-my-zsh not installed - installing"
+	sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+}
+
+ZSH=$HOME/.oh-my-zsh
+ensure_zsh
+ensure_oh_my_zsh
+
+ZSH_THEME="agnoster" # Set theme (from ~/.oh-my-zsh/themes/)
+plugins=(git colorize cp dircycle z docker github)
+
+#[ -f ~/dotfiles/z/z.sh ] && . ~/dotfiles/z/z.sh
+
+# Fuzzy-finder
+#[ -f ~/.fzf.zsh ] && . ~/.fzf.zsh
+
+source $ZSH/oh-my-zsh.sh
+

@@ -1,0 +1,16 @@
+CURRENT_USER=$(id -u):$(id -g)
+NODE_VERSION=latest
+function node_command() {
+	COMMAND=$1
+	shift
+	docker run -it -v $PWD:/usr/src/app -w /usr/src/app -u $CURRENT_USER node:$NODE_VERSION $COMMAND $@
+}
+	
+function node() {
+	node_command node $@
+	#docker run -it -v $PWD:/usr/src/app -w /usr/src/app -u $CURRENT_USER node:$NODE_VERSION node $@
+}
+function npm() {
+	node_command npm $@
+	#docker run -it -v $PWD:/usr/src/app -w /usr/src/app -u $CURRENT_USER node:$NODE_VERSION npm $@
+}
