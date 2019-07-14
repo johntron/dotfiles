@@ -4,18 +4,18 @@ Clone this repo and add a few lines to your dotfiles - stuff with a "dot" prefix
 
 ## Install
 
-1. Ensure your shell sources .profile when it starts - add something like `source $HOME/.profile` to an .*rc file
-2. Add this variable to ~/.profile and point it to [dotfiles/](dotfiles/): `DOTFILES=$HOME/Development/dotfiles/dotfiles`
-3. Source any of the files under [dotfiles/](dotfiles/) in your .profile
+1. Figure out which dotfile is sourced for non-login interactive shells - e.g. .zhrc when using zsh
+2. In this file, create an environment variable referencing the [dotfiles/](dotfiles/) directory: `DOTFILES=$HOME/Development/dotfiles/dotfiles`
+3. Add lines to source files under [dotfiles/](dotfiles/)
 
-Example ~/.profile:
+Example ~/.zshrc:
 
 ```shell
 DOTFILES=$HOME/Development/dotfiles/dotfiles
-. $DOTFILES/.profile-debian
-. $DOTFILES/.profile-user-bin
-. $DOTFILES/.profile-oh-my-zsh
-. $DOTFILES/.profile-dockerized-node
-. $DOTFILES/.profile-ssh
+source $DOTFILES/debian
+source $DOTFILES/user-bin
+source $DOTFILES/oh-my-zsh
+source $DOTFILES/dockerized-node
+source $DOTFILES/ssh
 ```
 
