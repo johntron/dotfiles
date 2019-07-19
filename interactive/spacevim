@@ -1,0 +1,11 @@
+ensure_spacevim() {
+  if [ -d $HOME/.SpaceVim.d ]; then
+    return
+  fi
+
+  curl -sLf https://spacevim.org/install.sh | bash -s -- --install vim
+}
+
+os_ensure curl bash
+ensure_spacevim
+
