@@ -32,9 +32,6 @@ auto-completion-tab-key-behavior = "smart"
 
 [[layers]]
 name = 'shell'
-default_shell = 'terminal'
-default_position = 'top'
-default_height = 30
 
 [[layers]]
 name = "unite"

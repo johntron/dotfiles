@@ -1,0 +1,14 @@
+(
+ensure_neovim() {
+  if [ -x "$(command -v nvim)" ]; then
+    return
+  fi
+  echo "Neovim is not installed - installing"
+  os_install neovim
+}
+ensure_neovim
+npm install -g neovim
+python3 -m pip install pynvim
+)
+alias vi="nvim"
+

@@ -4,7 +4,7 @@ ensure_spacevim() {
     return
   fi
 
-  curl -sLf https://spacevim.org/install.sh | bash -s -- --install vim
+  curl -sLf https://spacevim.org/install.sh | bash -s -- --install neovim
 }
 
 os_ensure curl bash

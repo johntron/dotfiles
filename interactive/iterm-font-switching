@@ -12,7 +12,7 @@ user_fonts=$HOME/Library/Fonts
 dynamic_profile="$HOME/Library/Application Support/iTerm2/DynamicProfiles/font-switching.plist"
 font_path=$(shuf -n1 -e $user_fonts/*Nerd\ Font*.ttf)
 #font_path=$(shuf -n1 -e $user_fonts/*owerline*.ttf)
-export font=$(postscript_font_name $font_path)
+font=$(postscript_font_name $font_path)
 size=15
 uuid=$(uuid)
 cat << EOF > $dynamic_profile
