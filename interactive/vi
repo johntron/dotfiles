@@ -1,3 +1,4 @@
+(
 ensure_vimrc() {
 	if [ -r $HOME/.vimrc ]; then
 		return
@@ -19,6 +20,7 @@ ensure_vim_plugin() {
 
 ensure_vimrc
 os_ensure vi
-alias vi="vi -p"
 #ensure_vim_plugin syntastic https://github.com/vim-syntastic/syntastic.git
+)
+alias vi="vi -p"
 

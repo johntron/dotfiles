@@ -1,6 +1,6 @@
 export DOTFILES_STARTUP="$DOTFILES_STARTUP, zshrc"
-source $DOTFILES/interactive/debian
+source $DOTFILES/interactive/macos
 source $DOTFILES/interactive/oh-my-zsh
 source $DOTFILES/interactive/ssh-tunnel
-source $DOTFILES/interactive/eclipse-che
 source $DOTFILES/interactive/spacevim
+source $DOTFILES/interactive/iterm-font-switching

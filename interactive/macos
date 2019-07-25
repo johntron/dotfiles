@@ -1,0 +1,24 @@
+os_install() {
+	brew install $@
+}
+
+os_ensure() {
+    CMD=$1
+    if brew list $CMD >/dev/null 2>&1; then
+        return
+    fi
+    echo "Package $CMD doesn't exists - installing"
+    os_install $CMD
+}
+
+(
+ ensure_homebrew() {
+    if [ -x "$(command -v brew)" ]; then
+        return
+    fi
+    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+}
+
+ensure_homebrew
+)
+

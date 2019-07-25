@@ -5,7 +5,7 @@ function node_command() {
 	shift
 	docker run -it -v $PWD:/usr/src/app -w /usr/src/app -u $CURRENT_USER node:$NODE_VERSION $COMMAND $@
 }
-	
+
 function node() {
 	node_command node $@
 }

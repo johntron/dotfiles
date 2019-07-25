@@ -1,0 +1,27 @@
+#os_ensure coreutils
+(
+remove_spaces() {
+    echo "$@" | tr -d ' '
+}
+
+postscript_font_name() {
+    echo $(fc-scan $@ --format "%{postscriptname}\n")
+}
+
+user_fonts=$HOME/Library/Fonts
+dynamic_profile="$HOME/Library/Application Support/iTerm2/DynamicProfiles/font-switching.plist"
+font_path=$(shuf -n1 -e $user_fonts/*Nerd\ Font*.ttf)
+#font_path=$(shuf -n1 -e $user_fonts/*owerline*.ttf)
+export font=$(postscript_font_name $font_path)
+size=15
+uuid=$(uuid)
+cat << EOF > $dynamic_profile
+{
+	"Profiles": [{
+		"Name": "Font switching",
+		"Guid": "$uuid",
+		"Normal Font" : "$font $size"
+	}]
+}
+EOF
+)

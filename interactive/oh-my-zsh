@@ -27,4 +27,3 @@ plugins=(git colorize cp dircycle z docker github)
 #[ -f ~/.fzf.zsh ] && . ~/.fzf.zsh
 
 source $ZSH/oh-my-zsh.sh
-
