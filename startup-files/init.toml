@@ -34,7 +34,7 @@ auto-completion-tab-key-behavior = "smart"
 name = 'shell'
 
 [[layers]]
-name = "unite"
+name = "denite"
 
 [[layers]]
 name = "tags"
