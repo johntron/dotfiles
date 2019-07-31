@@ -1,0 +1,5 @@
+export DOTFILES_STARTUP="$DOTFILES_STARTUP, interactiverc"
+
+source $DOTFILES/interactive/debian
+alias open="xdg-open"
+

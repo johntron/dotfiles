@@ -11,6 +11,10 @@ export DOTFILES=$HOME/Development/dotfiles # Change this to directory of this RE
 ln -s $DOTFILES/startup-files/.zprofile ~/.zprofile
 ln -s $DOTFILES/startup-files/.zshrc ~/.zshrc
 ln -s $DOTFILES/startup-files/.vimrc ~/.vimrc
+# For debian:
+ln -s $DOTFILES/startup-files/.interactiverc-debian $HOME/.interactiverc
+# ... for macos:
+ln -s $DOTFILES/startup-files/.interactiverc-macos $HOME/.interactiverc
 ```
 
 Warning: oh-my-zsh might have replaced the .zshrc created from those previous commands - check the output and restore it if necessary!
@@ -32,7 +36,7 @@ source $DOTFILES/login/default-editor-vi
 Next, use `source` in interactive startup to load features in [interactive/](interactive/)k:
 
 ```
-source $DOTFILES/interactive/debian
+source $DOTFILES/interactive/debian # ... or macos
 source $DOTFILES/interactive/user-bin
 source $DOTFILES/interactive/oh-my-zsh
 source $DOTFILES/interactive/dockerized-node
