@@ -34,16 +34,18 @@ auto-completion-tab-key-behavior = "smart"
 name = 'shell'
 
 [[layers]]
-name = "denite"
+name = "fzf"
 
-[[layers]]
-name = "tags"
-
-[[layers]]
-name = "lang#javascript"
+#[[layers]]
+#name = "lang#javascript"
 
 [[layers]]
 name = "lsp"
 filetypes = [
     "javascript"
 ]
+
+[[layers]]
+name = "easymotion"
+#[[layers]]
+#name = "incsearch"
