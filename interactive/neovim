@@ -5,10 +5,11 @@ ensure_neovim() {
   fi
   echo "Neovim is not installed - installing"
   os_install neovim
+  echo
+  echo "Installing language support for neovim - if this fails, you may need to install these manually: neovim npm package and pynvim python package"
+  sudo npm install -g neovim
+  python3 -m pip install pynvim
 }
 ensure_neovim
-npm install -g neovim
-python3 -m pip install pynvim
 )
 alias vi="nvim"
-
