@@ -36,16 +36,26 @@ name = 'shell'
 [[layers]]
 name = "fzf"
 
-#[[layers]]
-#name = "lang#javascript"
-
 [[layers]]
 name = "lsp"
 filetypes = [
-    "javascript"
+  "javascript"
 ]
 
 [[layers]]
 name = "easymotion"
+
 #[[layers]]
 #name = "incsearch"
+
+[[layers]]
+name = "lang#javascript"
+
+[[layers]]
+name = "VersionControl"
+
+[[layers]]
+name = "git"
+
+[[layers]]
+name = "tags"
