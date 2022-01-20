@@ -1,3 +1,7 @@
+# Create a symlink for this file:
+#  ln -s $DOTFILES/startup-files/interactiverc-debian ~/.zshrc
+
+export DOTFILES=$HOME/Development/dotfiles
 export DOTFILES_STARTUP="$DOTFILES_STARTUP, interactiverc"
 
 alias l="ls -Cw 1 --color=always"
@@ -8,9 +12,13 @@ HISTSIZE=10000
 SAVEHIST=10000
 setopt appendhistory
 
+source $DOTFILES/login/user-bin
 source $DOTFILES/interactive/debian
+source $DOTFILES/login/default-editor-neovim
+source $DOTFILES/interactive/neovim
 source $DOTFILES/interactive/vi
-source $DOTFILES/interactive/spacevim
+#source $DOTFILES/interactive/spacevim
 source $DOTFILES/interactive/zplug
+
 alias open="xdg-open"
 
