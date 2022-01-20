@@ -70,3 +70,9 @@ Now you should know which file to add environment variables to (for logins) and 
 * Portable
 * Simple
 
+## Tips
+
+* https://blog.confirm.ch/zsh-tips-changing-directories/
+* https://github.com/unixorn/awesome-zsh-plugins#plugins
+* https://github.com/ohmyzsh/ohmyzsh/tree/master/themes
+

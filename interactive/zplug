@@ -1,0 +1,36 @@
+(
+ensure_zplug() {
+  if [ -d $HOME/.zplug ]; then
+    return
+  fi
+
+  curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
+}
+
+os_ensure curl zsh awk
+ensure_zplug
+)
+
+setopt auto_cd
+
+source $HOME/.zplug/init.zsh
+zplug clear
+zplug "plugins/git", from:oh-my-zsh
+zplug "plugins/z", from:oh-my-zsh
+zplug "plugins/colorize", from:oh-my-zsh
+zplug "themes/gnzh", from:oh-my-zsh
+zplug "zshzoo/copier"
+zplug "djui/alias-tips"
+zplug "Valiev/almostontop"
+zplug "marlonrichert/zsh-autocomplete"
+#plugins=(git colorize cp dircycle z docker github)
+
+if ! zplug check --verbose; then
+    printf "Install? [y/N]: "
+    if read -q; then
+        echo; zplug install
+    fi
+fi
+
+zplug load
+

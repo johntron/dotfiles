@@ -19,7 +19,7 @@ ensure_vim_plugin() {
 }
 
 ensure_vimrc
-os_ensure vi
+os_ensure nvim
 #ensure_vim_plugin syntastic https://github.com/vim-syntastic/syntastic.git
 )
 alias vi="vi -p"

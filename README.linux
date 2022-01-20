@@ -1,0 +1,11 @@
+Getting keyboard working like macOS:
+* In Settings > Keyboard > Customize Shortcuts:
+* * Disable various launchers
+* * Tip: search for "super" and remove a lot of <Super> + <single letter key>
+* * Change Launch and switch applications to <Super> + <space> (avoids conflicts with Jetbrains)
+* * Tip: remove "Move window" and related shortcuts (avoid conflicts with Jetbrains)
+* GNOME Tweaks > Keyboard and mouse > Additional layout options, set "Alt/Win key behavior" to "Meta is mapped to Win"
+* Barrier (virtual KVM), customize the screen settings for any macOS computers - in "Modifier keys" set Meta: "Super"
+* Jetbrains IDEs:
+* * Help > Edit custom properties, and add "keymap.windows.as.meta=true" (no quotes) - restart IDE
+* * If using IdeaVim, left click on the Vim icon in bottom right, settings, change handlers as appropriate

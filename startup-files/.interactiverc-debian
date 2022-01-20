@@ -1,5 +1,16 @@
 export DOTFILES_STARTUP="$DOTFILES_STARTUP, interactiverc"
 
+alias l="ls -Cw 1 --color=always"
+alias ll="ls -Al --color=always"
+
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
+setopt appendhistory
+
 source $DOTFILES/interactive/debian
+source $DOTFILES/interactive/vi
+source $DOTFILES/interactive/spacevim
+source $DOTFILES/interactive/zplug
 alias open="xdg-open"
 

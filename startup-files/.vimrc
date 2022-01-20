@@ -119,3 +119,7 @@ endif
 "    \ 'AcceptSelection("e")': ['<2-LeftMouse>'],
 "    \ 'AcceptSelection("t")': ['<cr>'],
 "    \ }
+"
+set easymotion
+let mapleader=","
+inoremap jj <ESC>
