@@ -1,3 +1,8 @@
 export DOTFILES_STARTUP="$DOTFILES_STARTUP, interactiverc"
 
 source $DOTFILES/interactive/macos
+source $DOTFILES/interactive/oh-my-zsh
+source $DOTFILES/interactive/ssh-tunnel
+source $DOTFILES/interactive/neovim
+source $DOTFILES/interactive/spacevim
+
