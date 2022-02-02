@@ -70,3 +70,7 @@ Now you should know which file to add environment variables to (for logins) and 
 * Portable
 * Simple
 
+
+## TODO
+
+* Add fzf for CLI

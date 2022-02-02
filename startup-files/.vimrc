@@ -51,6 +51,9 @@ if &t_Co > 2 || has("gui_running")
   set hlsearch
 endif
 
+" Press jj to exit insert mode
+inoremap jj <ESC>
+
 "" Emmet
 "imap <Leader>m <C-Y>,
 "
@@ -119,3 +122,5 @@ endif
 "    \ 'AcceptSelection("e")': ['<2-LeftMouse>'],
 "    \ 'AcceptSelection("t")': ['<cr>'],
 "    \ }
+
+

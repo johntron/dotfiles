@@ -19,7 +19,7 @@ ensure_zsh
 ensure_oh_my_zsh
 
 ZSH_THEME="agnoster" # Set theme (from ~/.oh-my-zsh/themes/)
-plugins=(git colorize cp dircycle z docker github)
+plugins=(git colorize cp dircycle z docker github kubectl)
 
 #[ -f ~/dotfiles/z/z.sh ] && . ~/dotfiles/z/z.sh
 
@@ -27,3 +27,5 @@ plugins=(git colorize cp dircycle z docker github)
 #[ -f ~/.fzf.zsh ] && . ~/.fzf.zsh
 
 source $ZSH/oh-my-zsh.sh
+
+alias gplease="git push --force-with-lease"
