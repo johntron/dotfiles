@@ -1,0 +1,8 @@
+cask "copyq"
+brew "fish"
+cask "bitwarden"
+cask "rectangle"
+brew "git"
+cask "jetbrains-toolbox"
+cask "google-chrome"
+brew "gpg"
