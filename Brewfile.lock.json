@@ -30,6 +30,30 @@
         "options": {
           "full_name": "google-chrome"
         }
+      },
+      "zoom": {
+        "version": "5.14.2.17213",
+        "options": {
+          "full_name": "zoom"
+        }
+      },
+      "slack": {
+        "version": "4.31.156",
+        "options": {
+          "full_name": "slack"
+        }
+      },
+      "kicad": {
+        "version": "7.0.1-0",
+        "options": {
+          "full_name": "kicad"
+        }
+      },
+      "microsoft-teams": {
+        "version": "1.6.00.7354",
+        "options": {
+          "full_name": "microsoft-teams"
+        }
       }
     },
     "brew": {
@@ -170,11 +194,11 @@
   "system": {
     "macos": {
       "monterey": {
-        "HOMEBREW_VERSION": "4.0.12",
+        "HOMEBREW_VERSION": "4.0.13",
         "HOMEBREW_PREFIX": "/opt/homebrew",
         "Homebrew/homebrew-core": "api",
         "CLT": "14.2.0.0.1.1668646533",
-        "Xcode": "14.1",
+        "Xcode": "14.2",
         "macOS": "12.6.5"
       }
     }
