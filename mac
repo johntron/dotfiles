@@ -5,6 +5,7 @@ if ! command -v brew > /dev/null; then
 	eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 brew bundle
+curl -sSL https://install.python-poetry.org | python3.11 -
 fish_path=$(which fish)
 chpass -s $fish_path $(whoami)
 echo "Update Terminal's preferences to use $(which fish) as default shell"
