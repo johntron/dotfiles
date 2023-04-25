@@ -1,7 +1,6 @@
 #!/bin/env python
 import os
 import shutil
-import subprocess
 import textwrap
 import subprocess
 
