@@ -1,0 +1,37 @@
+#!/bin/env python
+import os
+import shutil
+import subprocess
+import textwrap
+from subprocess import run as r
+
+
+def read_packages_with_confirmation(filename):
+    with open(filename, 'r') as f:
+        packages = f.read().strip('\n')
+    response = input(("Packages to be installed or upgraded:\n" +
+                      textwrap.indent(packages, ' * ') +
+                      "\n" +
+                      "Continue? [y/N] "))
+    if response.lower() != 'y':
+        print('Aborting')
+        quit()
+    packages = packages.replace('\n', ' ')
+    return packages
+
+
+packages = read_packages_with_confirmation('Aptfile')
+subprocess.run(f"sudo apt install -y {packages}".split(' '))
+
+packages = read_packages_with_confirmation('Flatpakfile')
+subprocess.run(f"sudo flatpak install -y {packages}".split(' '))
+
+print('Installing Poetry')
+ps = subprocess.Popen(f"curl -sSL https://install.python-poetry.org".split(' '), stdout=subprocess.PIPE)
+output = subprocess.check_output('python', stdin=ps.stdout)
+ps.wait()
+print(output.decode('utf-8'))
+
+print('Changing shell to fish')
+fish_path = shutil.which('fish')
+r(f'chsh -s {fish_path} {os.getlogin()}'.split(' '))
