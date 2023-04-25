@@ -3,7 +3,13 @@ import os
 import shutil
 import subprocess
 import textwrap
-from subprocess import run as r
+import subprocess
+
+
+def r(command, return_stdout=False):
+    if return_stdout:
+        return subprocess.check_output(command.split(' '), text=True)
+    subprocess.run(command.split(' '), check=True)
 
 
 def read_packages_with_confirmation(filename):
@@ -20,18 +26,45 @@ def read_packages_with_confirmation(filename):
     return packages
 
 
-packages = read_packages_with_confirmation('Aptfile')
-subprocess.run(f"sudo apt install -y {packages}".split(' '))
+def apt_packages():
+    packages = read_packages_with_confirmation('Aptfile')
+    r(f"sudo apt install -y {packages}")
 
-packages = read_packages_with_confirmation('Flatpakfile')
-subprocess.run(f"sudo flatpak install -y {packages}".split(' '))
 
-print('Installing Poetry')
-ps = subprocess.Popen(f"curl -sSL https://install.python-poetry.org".split(' '), stdout=subprocess.PIPE)
-output = subprocess.check_output('python', stdin=ps.stdout)
-ps.wait()
-print(output.decode('utf-8'))
+def flatpak_packages():
+    packages = read_packages_with_confirmation('Flatpakfile')
+    r(f"sudo flatpak install -y {packages}")
 
-print('Changing shell to fish')
-fish_path = shutil.which('fish')
-r(f'chsh -s {fish_path} {os.getlogin()}'.split(' '))
+
+def poetry():
+    print('Installing Poetry')
+    ps = subprocess.Popen(f"curl -sSL https://install.python-poetry.org".split(' '), stdout=subprocess.PIPE)
+    output = subprocess.check_output('python', stdin=ps.stdout)
+    ps.wait()
+    print(output.decode('utf-8'))
+
+
+def fish():
+    print('Changing shell to fish')
+    fish_path = shutil.which('fish')
+    r(f'chsh -s {fish_path} {os.getlogin()}')
+
+
+def git():
+    print('Configuring git using --global')
+    r('git config --global core.editor vim')
+    name = input("Name to use for git (user.name): ")
+    subprocess.run(['git', 'config', '--global', 'user.name', f"'{name}'"])
+    email = input("Email to use for git (user.email): ")
+    r(f'git config --global user.email "{email}"')
+
+    name = r('git config --global user.name', return_stdout=True).strip("'\n")
+    email = r('git config --global user.email', return_stdout=True).strip('"\n')
+    print(f"Git user set to {name} <{email}>")
+
+
+apt_packages()
+flatpak_packages()
+poetry()
+fish()
+git()
