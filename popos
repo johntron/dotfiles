@@ -6,11 +6,25 @@ import textwrap
 import subprocess
 from urllib.request import urlopen
 
+home = os.environ["HOME"]
+home_bin = f'{home}/.local/bin'
+
 
 def r(command, return_stdout=False):
     if return_stdout:
         return subprocess.check_output(command.split(' '), text=True)
     subprocess.run(command.split(' '), check=True)
+
+
+def download_to(url, path, make_executable=False):
+    with urlopen(url) as i:
+        downloaded = i.read().decode('utf-8')
+        with open(path, 'w') as o:
+            o.write(downloaded)
+            print(f'Wrote {path}')
+    if make_executable:
+        st = os.stat(path)
+        os.chmod(path, st.st_mode | stat.S_IEXEC)
 
 
 def read_packages_with_confirmation(filename):
@@ -68,20 +82,12 @@ def git():
 
 
 def kubectx():
-    path = f'{os.environ["HOME"]}/.local/bin'
-    print(f'Adding kubectx / kubens to {path}')
-
-    def go(command):
-        with urlopen(f'https://raw.githubusercontent.com/ahmetb/kubectx/master/{command}') as i:
-            kubectx = i.read().decode('utf-8')
-            with open(f'{path}/{command}', 'w') as o:
-                o.write(kubectx)
-                print(f'Wrote {path}/{command}')
-        st = os.stat(f'{path}/{command}')
-        os.chmod(f'{path}/{command}', st.st_mode | stat.S_IEXEC)
-
-    go('kubectx')
-    go('kubens')
+    print(f'Adding kubectx / kubens')
+    base_repo = 'https://raw.githubusercontent.com/ahmetb/kubectx/master/'
+    download_to(f'{base_repo}/kubectx', f'{home_bin}/kubectx', make_executable=True)
+    download_to(f'{base_repo}/kubens', f'{home_bin}/kubens', make_executable=True)
+    download_to(f'{base_repo}/completion/kubectx.fish', f'{home}/.config/fish/completions/kubectx.fish')
+    download_to(f'{base_repo}/completion/kubens.fish', f'{home}/.config/fish/completions/kubens.fish')
 
 
 apt_packages()
