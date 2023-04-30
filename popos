@@ -1,8 +1,10 @@
 #!/bin/env python3
 import os
+import stat
 import shutil
 import textwrap
 import subprocess
+from urllib.request import urlopen
 
 
 def r(command, return_stdout=False):
@@ -65,8 +67,26 @@ def git():
     print(f"Git user set to {name} <{email}>")
 
 
+def kubectx():
+    path = f'{os.environ["HOME"]}/.local/bin'
+    print(f'Adding kubectx / kubens to {path}')
+
+    def go(command):
+        with urlopen(f'https://raw.githubusercontent.com/ahmetb/kubectx/master/{command}') as i:
+            kubectx = i.read().decode('utf-8')
+            with open(f'{path}/{command}', 'w') as o:
+                o.write(kubectx)
+                print(f'Wrote {path}/{command}')
+        st = os.stat(f'{path}/{command}')
+        os.chmod(f'{path}/{command}', st.st_mode | stat.S_IEXEC)
+
+    go('kubectx')
+    go('kubens')
+
+
 apt_packages()
 flatpak_packages()
 poetry()
 fish()
 git()
+kubectx()
