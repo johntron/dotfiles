@@ -1,4 +1,5 @@
 git
+graphviz
 python3
 plantuml
 xclip
@@ -13,3 +14,5 @@ exfat-fuse
 gparted
 appimagelauncher
 software-properties-common
+podman
+podman-docker

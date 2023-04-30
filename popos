@@ -1,4 +1,4 @@
-#!/bin/env python
+#!/bin/env python3
 import os
 import shutil
 import textwrap
@@ -38,12 +38,15 @@ def flatpak_packages():
 def poetry():
     print('Installing Poetry')
     ps = subprocess.Popen(f"curl -sSL https://install.python-poetry.org".split(' '), stdout=subprocess.PIPE)
-    output = subprocess.check_output('python', stdin=ps.stdout)
+    output = subprocess.check_output('python3', stdin=ps.stdout)
     ps.wait()
     print(output.decode('utf-8'))
 
 
 def fish():
+    if os.environ['SHELL'] == '/usr/bin/fish':
+        print('Already using fish as shell')
+        return
     print('Changing shell to fish')
     fish_path = shutil.which('fish')
     r(f'chsh -s {fish_path} {os.getlogin()}')
