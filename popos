@@ -103,10 +103,17 @@ def k9s():
         extractor.extract('k9s', home_bin)
 
 
+def fisher_packages():
+    # TODO consider moving to fundle
+    packages = read_packages_with_confirmation('Fisherfile')
+    r(f'fish -c "fisher install {packages}"')
+
+
 apt_packages()
 flatpak_packages()
-poetry()
 fish()
+fisher_packages()
+poetry()
 git()
 kubectx()
 k9s()
