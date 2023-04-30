@@ -2,6 +2,7 @@
 import os
 import stat
 import shutil
+import shlex
 import tarfile
 import textwrap
 import subprocess
@@ -12,10 +13,10 @@ home = os.environ["HOME"]
 home_bin = f'{home}/.local/bin'
 
 
-def r(command, return_stdout=False):
+def r(command, return_stdout=False, **extra):
     if return_stdout:
-        return subprocess.check_output(command.split(' '), text=True)
-    subprocess.run(command.split(' '), check=True)
+        return subprocess.check_output(shlex.split(command), text=True, **extra)
+    subprocess.run(shlex.split(command), check=True, **extra)
 
 
 def download_to(url, path, make_executable=False):
@@ -68,6 +69,8 @@ def fish():
     print('Changing shell to fish')
     fish_path = shutil.which('fish')
     r(f'chsh -s {fish_path} {os.getlogin()}')
+    print('Installing fisher')
+    r('fish -c "curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher"')
 
 
 def git():
