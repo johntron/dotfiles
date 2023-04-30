@@ -2,8 +2,10 @@
 import os
 import stat
 import shutil
+import tarfile
 import textwrap
 import subprocess
+import io
 from urllib.request import urlopen
 
 home = os.environ["HOME"]
@@ -90,9 +92,18 @@ def kubectx():
     download_to(f'{base_repo}/completion/kubens.fish', f'{home}/.config/fish/completions/kubens.fish')
 
 
+def k9s():
+    print('Installing k9s from snap')
+    with urlopen('https://github.com/derailed/k9s/releases/download/v0.27.3/k9s_Linux_amd64.tar.gz') as url:
+        data = io.BytesIO(url.read())
+    with tarfile.open(fileobj=data) as extractor:
+        extractor.extract('k9s', home_bin)
+
+
 apt_packages()
 flatpak_packages()
 poetry()
 fish()
 git()
 kubectx()
+k9s()
