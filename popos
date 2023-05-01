@@ -96,11 +96,20 @@ def kubectx():
 
 
 def k9s():
-    print('Installing k9s from snap')
+    print('Installing helm from github tarball')
     with urlopen('https://github.com/derailed/k9s/releases/download/v0.27.3/k9s_Linux_amd64.tar.gz') as url:
         data = io.BytesIO(url.read())
     with tarfile.open(fileobj=data) as extractor:
         extractor.extract('k9s', home_bin)
+
+def helm():
+    print('Installing helm from github tarball')
+    with urlopen('https://get.helm.sh/helm-v3.11.3-linux-amd64.tar.gz') as url:
+        data = io.BytesIO(url.read())
+    with tarfile.open(fileobj=data) as extractor:
+        helm = extractor.getmember('linux-amd64/helm')
+        helm.name = 'helm'
+        extractor.extract(helm, home_bin)
 
 
 def fisher_packages():
@@ -117,3 +126,4 @@ poetry()
 git()
 kubectx()
 k9s()
+helm()
