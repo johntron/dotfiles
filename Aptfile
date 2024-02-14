@@ -3,16 +3,11 @@ graphviz
 python3
 plantuml
 xclip
-virtualbox
-gnome-boxes
 fish
-nvme-cli
 stress-ng
 s-tui
-exfatprogs
-exfat-fuse
-gparted
 appimagelauncher
 software-properties-common
 podman
 podman-docker
+calibrediscord
