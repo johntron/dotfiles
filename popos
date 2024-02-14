@@ -53,15 +53,6 @@ def flatpak_packages():
     packages = read_packages_with_confirmation('Flatpakfile')
     r(f"sudo flatpak install -y {packages}")
 
-
-def poetry():
-    print('Installing Poetry')
-    ps = subprocess.Popen(f"curl -sSL https://install.python-poetry.org".split(' '), stdout=subprocess.PIPE)
-    output = subprocess.check_output('python3', stdin=ps.stdout)
-    ps.wait()
-    print(output.decode('utf-8'))
-
-
 def fish():
     if os.environ['SHELL'] == '/usr/bin/fish':
         print('Already using fish as shell')
@@ -117,12 +108,10 @@ def fisher_packages():
     packages = read_packages_with_confirmation('Fisherfile')
     r(f'fish -c "fisher install {packages}"')
 
-
 apt_packages()
 flatpak_packages()
 fish()
 fisher_packages()
-poetry()
 git()
 kubectx()
 k9s()
